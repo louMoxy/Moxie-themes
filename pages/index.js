@@ -25,7 +25,7 @@ export default function Index({ globalData }) {
         
         {/* Sub-headline */}
         <p className="text-xl md:text-2xl font-body text-off-white text-center mb-12 max-w-3xl leading-relaxed">
-          Hi, I'm Moxie. I help ambitious small businesses launch websites that look brilliant and get found.
+          Hi, I&apos;m Moxie. I help ambitious small businesses launch websites that look brilliant and get found.
         </p>
         
         {/* CTA Buttons */}
@@ -61,7 +61,7 @@ export default function Index({ globalData }) {
               How I Can Help You
             </h2>
             <p className="text-lg font-body text-charcoal/70 max-w-2xl mx-auto">
-              From finding what's broken to launching your dream store, I've got you covered every step of the way.
+              From finding what&apos;s broken to launching your dream store, I&apos;ve got you covered every step of the way.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export default function Index({ globalData }) {
               </div>
               <h3 className="text-2xl font-bold font-heading text-charcoal mb-3">SEO Audit</h3>
               <p className="font-body text-charcoal/70 text-center mb-4 leading-relaxed">
-                Find what's broken, what's costing you traffic, and what to fix first.
+                Find what&apos;s broken, what&apos;s costing you traffic, and what to fix first.
               </p>
               <div className="text-sm font-body text-purple font-semibold">
                 Get a clear roadmap →
@@ -91,7 +91,7 @@ export default function Index({ globalData }) {
               </div>
               <h3 className="text-2xl font-bold font-heading text-white mb-3">Fix Packages</h3>
               <p className="font-body text-white text-center mb-4 leading-relaxed">
-                I'll roll up my sleeves and fix everything for you. No technical headaches.
+                I&apos;ll roll up my sleeves and fix everything for you. No technical headaches.
               </p>
               <div className="text-sm font-body text-yellow font-semibold">
                 Usually 10-12 hours →
@@ -107,7 +107,7 @@ export default function Index({ globalData }) {
               </div>
               <h3 className="text-2xl font-bold font-heading text-charcoal mb-3">Shopify Setup</h3>
               <p className="font-body text-charcoal/70 text-center mb-4 leading-relaxed">
-                From products to payments, I'll set you up properly so you can launch with confidence.
+                From products to payments, I&apos;ll set you up properly so you can launch with confidence.
               </p>
               <div className="text-sm font-body text-pink font-semibold">
                 Launch without stress →
@@ -130,10 +130,10 @@ export default function Index({ globalData }) {
             
             <div className="flex-2">
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-6">
-                What's an SEO Audit?
+                What&apos;s an SEO Audit?
               </h2>
               <p className="text-lg font-body text-charcoal mb-8 leading-relaxed">
-                It's a health check for your site. I'll tell you what's broken, what's costing you traffic, and what to fix first. You'll get a clear, no-fluff report — and I can fix it for you if you'd rather not wrestle with it yourself.
+                It&apos;s a health check for your site. I&apos;ll tell you what&apos;s broken, what&apos;s costing you traffic, and what to fix first. You&apos;ll get a clear, no-fluff report — and I can fix it for you if you&apos;d rather not wrestle with it yourself.
               </p>
               <a 
                 href="#contact-form" 
@@ -188,7 +188,7 @@ export default function Index({ globalData }) {
             Want first dibs?
           </h2>
           <p className="text-lg font-body text-charcoal mb-8">
-            Be the first to know when my templates drop — and get the odd SEO tip while you're at it.
+            Be the first to know when my templates drop — and get the odd SEO tip while you&apos;re at it.
           </p>
           
           <div className="max-w-md mx-auto">
@@ -201,10 +201,10 @@ export default function Index({ globalData }) {
       <section id="contact-form" className="bg-purple py-16 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-off-white mb-6">
-            Let's Chat
+            Let&apos;s Chat
           </h2>
           <p className="text-lg font-body text-off-white mb-8">
-            Got a project in mind? Questions about SEO? Or just want to say hi? I'd love to hear from you.
+            Got a project in mind? Questions about SEO? Or just want to say hi? I&apos;d love to hear from you.
           </p>
           
            <ContactForm />
@@ -215,7 +215,7 @@ export default function Index({ globalData }) {
       <section className="bg-charcoal py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold font-heading text-off-white mb-8">
-            Let's Chat
+            Let&apos;s Chat
                 </h2>
           <p className="text-lg font-body text-off-white mb-8">
             Got a project or just want to chat shop?
