@@ -12,7 +12,7 @@ export default function Index({ globalData }) {
       <SEO title="Moxie Themes – Coming Soon" description="Fun, fast, SEO-friendly Shopify templates for ambitious small businesses" />
       
       {/* Hero Section */}
-      <section className="bg-purple min-h-screen flex flex-col items-center justify-center px-6">
+      <section className="bg-purple min-h-screen flex flex-col items-center justify-center px-6 py-18">
         {/* Logo */}
         <div className="mb-12">
           <LogoSvg />
