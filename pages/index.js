@@ -149,7 +149,7 @@ export default function Index({ globalData }) {
       {/* Coming Soon Section */}
       <section className="bg-yellow px-6 flex-1 relative overflow-hidden flex items-center justify-center h-auto py-18">
         {/* Background Icons */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none sm:opacity-100 opacity-70">
           <div className="absolute top-8 left-8 w-12 h-12 bg-pink/20 rounded-full flex items-center justify-center animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}>
             <Star className="w-6 h-6 text-pink/60" />
           </div>
