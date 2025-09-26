@@ -7,11 +7,15 @@
   --color-gradient-2: var(--theme-gradient-2);
   --color-gradient-3: var(--theme-gradient-3);
   --color-gradient-4: var(--theme-gradient-4);
-  --font-primary: var(--theme-headings);
-  --font-secondary: var(--theme-body);
+  --color-purple: var(--theme-purple);
+  --color-yellow: var(--theme-yellow);
+  --color-pink: var(--theme-pink);
+  --color-teal: var(--theme-teal);
+  --color-charcoal: var(--theme-charcoal);
+  --color-off-white: var(--theme-off-white);
+  --font-primary: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-secondary: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   h1,
@@ -21,9 +25,35 @@
   h5,
   h6 {
     font-family: var(--font-primary);
+    color: var(--color-charcoal);
   }
 
   body {
     font-family: var(--font-secondary);
+    background-color: var(--color-off-white);
+    color: var(--color-charcoal);
+    scroll-behavior: smooth;
+  }
+}
+
+/* Logo Animation */
+
+@keyframes fadeInRotate {
+  0% {
+    opacity: 0;
+    transform: matrix(1, 0, 0, 1, 122, 106) rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: matrix(1, 0, 0, 1, 122, 106) rotate(0deg);
+  }
+}
+
+@keyframes letterFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

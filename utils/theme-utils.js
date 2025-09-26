@@ -1,8 +1,8 @@
-const { COLOR_THEMES, FONT_THEMES } = require('../themes');
+import { COLOR_THEMES, FONT_THEMES } from '../themes.js';
 
-const THEME = process.env.BLOG_THEME || 'default';
-const FONT_HEADINGS = process.env.BLOG_FONT_HEADINGS || 'sans-serif';
-const FONT_BODY = process.env.BLOG_FONT_BODY || 'sans-serif';
+const THEME = process.env.BLOG_THEME || 'moxie';
+const FONT_HEADINGS =  'bricolage-grotesque';
+const FONT_BODY = 'dm-sans';
 
 export function generateCssVariables() {
   const cssVars = {};
