@@ -5,7 +5,7 @@ export const LogoSvg = () => {
   return (
     <svg 
       width="100%" 
-      height="300" 
+      height="80" 
       viewBox="0 100 375 200" 
       preserveAspectRatio="xMidYMid meet" 
       version="1.0"

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import styles from './Layout.module.css';
+import Header from './Header';
 
 export function GradientBackground({ variant, className }) {
   const classes = classNames(
@@ -51,7 +52,8 @@ export default function Layout({ children }) {
 
   return (
     <div className="relative overflow-hidden">
-        {children}
+      <Header />
+      {children}
     </div>
   );
 }

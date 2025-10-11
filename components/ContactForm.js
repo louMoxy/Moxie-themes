@@ -69,7 +69,7 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg border-2 border-yellow font-body text-yellow bg-transparent focus:outline-none focus:border-yellow transition-colors placeholder-yellow/70"
+            className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
             placeholder="What should I call you?"
           />
         </div>
@@ -85,7 +85,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg border-2 border-yellow font-body text-yellow bg-transparent focus:outline-none focus:border-yellow transition-colors placeholder-yellow/70"
+            className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
             placeholder="your@email.com"
           />
         </div>
@@ -101,7 +101,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full px-4 py-3 rounded-lg border-2 border-yellow font-body text-yellow bg-transparent focus:outline-none focus:border-yellow transition-colors resize-none placeholder-yellow/70"
+            className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors resize-none placeholder-white/70"
             placeholder="Tell me about your project, questions, or just say hi!"
           />
         </div>
@@ -115,13 +115,13 @@ export default function ContactForm() {
         </button>
 
         {submitStatus === 'success' && (
-          <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center font-body">
+          <div className="p-4 bg-green-500/20 border border-green-400/50 text-green-200 rounded-lg text-center font-body">
             Thanks! I&apos;ll get back to you soon. 🎉
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center font-body">
+          <div className="p-4 bg-red-500/20 border border-red-400/50 text-red-200 rounded-lg text-center font-body">
             Oops! Something went wrong. Please try again or email me directly.
           </div>
         )}
