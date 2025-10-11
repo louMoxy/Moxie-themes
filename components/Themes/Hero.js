@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { Y2KBuyLink } from './y2k-buy-link';
+import Image from 'next/image';
 
 export const Hero = () => {
   return (
@@ -58,7 +59,7 @@ export const Hero = () => {
                     <span >, and a touch of</span>
                     <span className="text-pink font-bold drop-shadow-sm"> early-2000s chaos.</span>
                     <br />
-                    <span>It's</span>
+                    <span>It&apos;s</span>
                     <span className="text-purple font-bold drop-shadow-sm"> bold</span>
                     <span>,</span>
                     <span className="text-teal font-bold drop-shadow-sm"> fast</span>
@@ -98,9 +99,11 @@ export const Hero = () => {
       >
             {/* Theme GIF */}
             <div className="rounded-2xl bg-white/10 backdrop-blur-md h-[400px] md:h-[500px] lg:h-[900px] max-w-[300px] md:max-w-none mx-auto md:mx-0 border border-white/20 shadow-2xl overflow-hidden">
-              <img 
+              <Image 
                 src="/y2k/Promo.gif" 
                 alt="Y2K Theme in Action" 
+                width={600}
+                height={900}
                 className="w-full h-full object-contain rounded-2xl"
               />
             </div>

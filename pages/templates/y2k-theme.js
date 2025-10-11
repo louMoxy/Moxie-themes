@@ -11,6 +11,7 @@ import {
   Zap
 } from 'lucide-react';
 import { Hero } from '../../components/Themes/Hero';
+import Image from 'next/image';
 
 export default function Y2KTheme() {
   return (
@@ -64,10 +65,12 @@ export default function Y2KTheme() {
             </ul>
 
             {/* Screenshot placeholder */}
-            <div className="mt-16rounded-2xl  flex items-center justify-center">
-            <img 
+            <div className="mt-16 rounded-2xl flex items-center justify-center">
+            <Image 
                   src="/y2k/y2k-cursor.gif" 
                   alt="Y2K Theme Interactive Cursor Effects" 
+                  width={600}
+                  height={400}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                 />
             </div>
@@ -96,7 +99,7 @@ export default function Y2KTheme() {
                   Perfect for product drops, sales, or cheeky announcements.
                 </p>
               </div>
-              <img src="/y2k/3d-spinning-text.gif" alt="Y2K Theme 3D Spinning Text" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/3d-spinning-text.gif" alt="Y2K Theme 3D Spinning Text" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Dancing Cards */}
@@ -110,7 +113,7 @@ export default function Y2KTheme() {
                   Every product grid becomes a mini party — animated borders, subtle 3D tilts, and smooth transitions that make browsing addictive.
                 </p>
               </div>
-              <img src="/y2k/dancing-cards.gif" alt="Y2K Theme Dancing Cards" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/dancing-cards.gif" alt="Y2K Theme Dancing Cards" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Countup Sections */}
@@ -124,10 +127,10 @@ export default function Y2KTheme() {
                   Animated number counters that glide from 0 → N as you scroll — perfect for showing off sales figures, happy customers, or cups of coffee consumed.
                 </p>
                 <p className="text-charcoal/70 mt-4">
-                  They're lightweight, eye-catching, and auto-trigger only when visible, so no performance hit.
+                  They&apos;re lightweight, eye-catching, and auto-trigger only when visible, so no performance hit.
                 </p>
               </div>
-              <img src="/y2k/countup-timer.gif" alt="Y2K Theme Countup Timer" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/countup-timer.gif" alt="Y2K Theme Countup Timer" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Optimised Product Layouts */}
@@ -138,13 +141,13 @@ export default function Y2KTheme() {
                   Everything your customer needs, exactly where they expect it.
                 </p>
                 <p className="text-charcoal/70">
-                  From variant pickers and stock badges to sticky "Add to Cart" buttons — every product page is crafted for conversions.
+                  From variant pickers and stock badges to sticky &quot;Add to Cart&quot; buttons — every product page is crafted for conversions.
                 </p>
                 <p className="text-charcoal/70 mt-4">
                   Clean, fast-loading, and responsive down to the pixel. Because a theme that looks good is great… but one that sells? Even better.
                 </p>
               </div>
-              <img src="/y2k/product.gif" alt="Y2K Product Layout" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/product.gif" alt="Y2K Product Layout" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
@@ -230,7 +233,7 @@ export default function Y2KTheme() {
                 See It In Action
               </h3>
               <p className="text-lg text-charcoal/80">
-                Don't just take our word for it — experience the Y2K magic yourself.
+                Don&apos;t just take our word for it — experience the Y2K magic yourself.
               </p>
             </div>
             
@@ -314,7 +317,7 @@ export default function Y2KTheme() {
           Why It Works (and Why It Sells)
           </h2>
           <p className="text-xl text-charcoal/80 mb-8">
-            Because it's not just a vibe — it's strategy.
+            Because it&apos;s not just a vibe — it&apos;s strategy.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -329,9 +332,9 @@ export default function Y2KTheme() {
             </div>
           </div>
 
-          <p className="text-lg text-charcoal/70">
-            The Y2K Theme isn't a gimmick — it's good UX disguised as fun.
-          </p>
+            <p className="text-lg text-charcoal/70">
+              The Y2K Theme isn&apos;t a gimmick — it&apos;s good UX disguised as fun.
+            </p>
         </div>
       </section>
 
@@ -505,17 +508,17 @@ export default function Y2KTheme() {
               I built the Y2K Theme because I was bored of lifeless, beige Shopify stores.
             </p>
             <p className="text-lg leading-relaxed mb-6">
-              This one's fun, fast, and unapologetically extra — without breaking Core Web Vitals.
+              This one&apos;s fun, fast, and unapologetically extra — without breaking Core Web Vitals.
             </p>
             <p className="text-lg leading-relaxed">
-              If you want a store that vibes and converts, you've found your theme.
+              If you want a store that vibes and converts, you&apos;ve found your theme.
             </p>
           </div>
 
           <div className="mb-8">
-            <h3 className="text-3xl font-bold mb-4">Don't Be Basic. Be Y2K.</h3>
+            <h3 className="text-3xl font-bold mb-4">Don&apos;t Be Basic. Be Y2K.</h3>
             <p className="text-xl">
-              The aesthetic's trending right now — get in while everyone else's site still looks like a spreadsheet.
+              The aesthetic&apos;s trending right now — get in while everyone else&apos;s site still looks like a spreadsheet.
             </p>
           </div>
 
