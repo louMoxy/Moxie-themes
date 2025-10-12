@@ -54,6 +54,7 @@ export default function ContactForm() {
       <form 
         name="contact" 
         method="post" 
+        data-netlify="true"
         onSubmit={handleSubmit}
         className="space-y-6"
       >
