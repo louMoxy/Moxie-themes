@@ -1,10 +1,46 @@
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
-import ContactForm from '../components/ContactForm';
 import { Mail } from 'lucide-react';
 
 export default function Contact({ globalData }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    
+    fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        alert("Thank you for your message! I'll get back to you soon.");
+        // Reset form
+        e.target.reset();
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("There was an error sending your message. Please try again.");
+      });
+  };
+
   return (
     <Layout>
       <SEO title="Contact - Moxie Themes" description="Get in touch with Moxie for SEO audits, Shopify setup, or questions about upcoming templates" />
@@ -36,7 +72,65 @@ export default function Contact({ globalData }) {
                 <h2 className="text-2xl font-bold font-heading text-white mb-6 text-center">
                   Or just fill this out! 📝
                 </h2>
-                <ContactForm />
+                <form name="contact" onSubmit={handleSubmit} className="space-y-6">
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="bot-field" />
+                  
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium font-body text-white mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
+                      placeholder="What should I call you?"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium font-body text-white mb-2">
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium font-body text-white mb-2">
+                      What can I help you with?
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors resize-none placeholder-white/70"
+                      placeholder="Tell me about your project, questions, or just say hi!"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-yellow text-purple px-6 py-3 rounded-lg font-bold font-body hover:bg-yellow/90 transition-colors"
+                  >
+                    Send Message
+                  </button>
+                </form>
               </div>
             </div>
           </div>
