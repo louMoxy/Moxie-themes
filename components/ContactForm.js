@@ -10,11 +10,6 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
 
   const handleChange = (e) => {
     setFormData({
@@ -29,10 +24,10 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...formData })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
@@ -51,12 +46,9 @@ export default function ContactForm() {
   return (
     <div className="max-w-md mx-auto">
       <form 
-        name="contact" 
-        method="post" 
         onSubmit={handleSubmit}
         className="space-y-6"
       >
-        <input type="hidden" name="form-name" value="contact" />
         
         <div>
           <label htmlFor="name" className="block text-sm font-medium font-body text-white mb-2">
