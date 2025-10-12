@@ -19,6 +19,9 @@ export default function Y2KTheme() {
       <SEO 
         title="Y2K Shopify Theme - Retro Energy, Modern Speed" 
         description="The Y2K Theme brings your store to life with retro-futuristic sparkle — 3D text, interactive effects, and a touch of early-2000s chaos. Fast, bold, and built to rank." 
+        canonical="/templates/y2k-theme"
+        keywords="Y2K Shopify theme, retro ecommerce design, 2000s style templates, unique Shopify themes, interactive store design, retro-futuristic themes"
+        ogType="product"
       />
       
       <Hero />

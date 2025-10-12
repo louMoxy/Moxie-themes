@@ -8,9 +8,51 @@ import { Mail,  X, Instagram as InstagramIcon } from 'lucide-react';
 import { Newseletter } from '../components/Newseletter';
 
 export default function Index({ globalData }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Moxie Themes",
+    "url": "https://moxiethemes.com",
+    "logo": "https://moxiethemes.com/images/logo.png",
+    "description": "Premium Shopify templates and SEO services for ambitious small businesses",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "",
+      "contactType": "customer service",
+      "email": "hello@moxiethemes.com"
+    },
+    "sameAs": [
+      "https://x.com/moxie_themes",
+      "https://instagram.com/moxiethemes"
+    ],
+    "offers": [
+      {
+        "@type": "Service",
+        "name": "Shopify Templates",
+        "description": "Unique, fast-loading Shopify templates with modern design"
+      },
+      {
+        "@type": "Service", 
+        "name": "SEO Audits",
+        "description": "Comprehensive SEO audits to improve your website's search rankings"
+      }
+    ]
+  };
+
   return (
     <Layout>
-      <SEO title="Moxie Themes – Coming Soon" description="Fun, fast, SEO-friendly Shopify templates for ambitious small businesses" />
+      <SEO 
+        title="Premium Shopify Templates & SEO Services" 
+        description="Transform your Shopify store with our unique, fast-loading templates and expert SEO audits. Built for ambitious small businesses who want to stand out and rank higher." 
+        canonical="/"
+        keywords="Shopify templates, SEO services, ecommerce design, Shopify themes, website optimization, small business SEO, custom Shopify stores"
+      />
+      
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       
       <HeroSection />
 

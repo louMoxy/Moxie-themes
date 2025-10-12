@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Layout from '../components/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
-import { Mail } from 'lucide-react';
+import { Mail, CheckCircle, XCircle } from 'lucide-react';
 
 export default function Contact({ globalData }) {
   const [formData, setFormData] = useState({
@@ -10,6 +10,8 @@ export default function Contact({ globalData }) {
     email: '',
     message: ''
   });
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +24,10 @@ export default function Contact({ globalData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    // Reset previous states
+    setIsSuccess(false);
+    setIsError(false);
+    
     const formData = new FormData(e.target);
     
     fetch("/__forms.html", {
@@ -30,20 +36,25 @@ export default function Contact({ globalData }) {
       body: new URLSearchParams(formData).toString()
     })
       .then(() => {
-        alert("Thank you for your message! I'll get back to you soon.");
+        setIsSuccess(true);
         // Reset form
         e.target.reset();
         setFormData({ name: '', email: '', message: '' });
       })
       .catch(error => {
         console.error('Error:', error);
-        alert("There was an error sending your message. Please try again.");
+        setIsError(true);
       });
   };
 
   return (
     <Layout>
-      <SEO title="Contact - Moxie Themes" description="Get in touch with Moxie for SEO audits, Shopify setup, or questions about upcoming templates" />
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Moxie for SEO audits, Shopify setup, or questions about upcoming templates. Expert help for your ecommerce success." 
+        canonical="/contact"
+        keywords="contact Moxie Themes, SEO audit booking, Shopify consultation, ecommerce help, website optimization services"
+      />
 
       {/* Contact Section */}
       <section className="min-h-screen bg-purple flex items-center py-20 px-6">
@@ -72,6 +83,27 @@ export default function Contact({ globalData }) {
                 <h2 className="text-2xl font-bold font-heading text-white mb-6 text-center">
                   Or just fill this out! 📝
                 </h2>
+                
+                {/* Success Message */}
+                {isSuccess && (
+                  <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <p className="text-green-100 font-body">
+                      Thank you for your message! I'll get back to you soon.
+                    </p>
+                  </div>
+                )}
+                
+                {/* Error Message */}
+                {isError && (
+                  <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center space-x-3">
+                    <XCircle className="w-6 h-6 text-red-400 flex-shrink-0" />
+                    <p className="text-red-100 font-body">
+                      There was an error sending your message. Please try again.
+                    </p>
+                  </div>
+                )}
+                
                 <form name="contact" onSubmit={handleSubmit} className="space-y-6">
                   <input type="hidden" name="form-name" value="contact" />
                   <input type="hidden" name="bot-field" />
