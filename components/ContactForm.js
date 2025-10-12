@@ -49,6 +49,7 @@ export default function ContactForm() {
       <form 
         onSubmit={handleSubmit}
         className="space-y-6"
+        data-netlify="true"
       >
         
         <div>
