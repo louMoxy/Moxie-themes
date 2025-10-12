@@ -84,6 +84,7 @@ export default function Contact({ globalData }) {
                       type="text"
                       id="name"
                       name="name"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
@@ -100,6 +101,7 @@ export default function Contact({ globalData }) {
                       type="email"
                       id="email"
                       name="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
