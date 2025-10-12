@@ -27,7 +27,7 @@ class MyDocument extends Document {
           className={`antialiased text-lg leading-base`}
         >
           {/* Static form for Netlify to detect during build */}
-          <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
             <input type="text" name="name" />
             <input type="email" name="email" />
             <textarea name="message"></textarea>
