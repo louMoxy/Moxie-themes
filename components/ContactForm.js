@@ -18,16 +18,22 @@ export default function ContactForm() {
     });
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...formData })
       });
 
       if (response.ok) {
@@ -46,9 +52,12 @@ export default function ContactForm() {
   return (
     <div className="max-w-md mx-auto">
       <form 
+        name="contact" 
+        method="post" 
         onSubmit={handleSubmit}
         className="space-y-6"
       >
+        <input type="hidden" name="form-name" value="contact" />
         
         <div>
           <label htmlFor="name" className="block text-sm font-medium font-body text-white mb-2">
