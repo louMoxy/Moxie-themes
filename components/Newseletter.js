@@ -51,15 +51,14 @@ export const Newseletter = () => {
       </div>
 
       <div className="relative max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal text-center mb-8">
-          Join the Moxie List
-        </h2>
         
         {/* Two column layout */}
         <div className="relative grid md:grid-cols-4 items-stretch">
           {/* Content card */}
           <div className="relative z-10 col-span-3 rounded-2xl bg-white/80 backdrop-blur-md border border-white/40 shadow-2xl p-6 md:p-10 md:-mr-8">
-
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal text-center mb-8">
+            Join the Moxie List
+          </h2>
             <p className="font-body text-charcoal text-lg md:text-xl leading-relaxed text-center mb-8">
               Want first dibs on new Shopify templates, SEO fixes, and cheeky behind-the-scenes stuff?
             </p>

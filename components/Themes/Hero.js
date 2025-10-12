@@ -75,13 +75,12 @@ export const Hero = () => {
                   className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
                 >
                   <div className="flex flex-col items-center gap-2">
-                    <a href="https://y2k-girly-theme.myshopify.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://y2k-girly-theme.myshopify.com/?_ab=0&_fd=0&_sc=1" target="_blank" rel="noopener noreferrer">
                     <button className="bg-purple text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-purple/90 transition-colors flex items-center justify-center gap-3 cursor-pointer">
                       <Play className="w-6 h-6" />
                         Live Demo
                     </button>
                     </a>
-                      <p className="text-white text-sm">Use password: demo</p>
                   </div>
                   <Y2KBuyLink>
                     <span className="text-white">Buy Now – £120</span>

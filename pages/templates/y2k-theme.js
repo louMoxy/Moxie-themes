@@ -38,7 +38,7 @@ export default function Y2KTheme() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <ul className="space-y-6">
               {[
                 { title: "Glitch Cursor", desc: "Cyberpunk vibes, pure chaos." },
@@ -71,6 +71,7 @@ export default function Y2KTheme() {
                   alt="Y2K Theme Interactive Cursor Effects" 
                   width={600}
                   height={400}
+                  unoptimized
                   className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                 />
             </div>
@@ -99,7 +100,7 @@ export default function Y2KTheme() {
                   Perfect for product drops, sales, or cheeky announcements.
                 </p>
               </div>
-              <Image src="/y2k/3d-spinning-text.gif" alt="Y2K Theme 3D Spinning Text" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/3d-spinning-text.gif" alt="Y2K Theme 3D Spinning Text" width={600} height={400} unoptimized className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Dancing Cards */}
@@ -113,7 +114,7 @@ export default function Y2KTheme() {
                   Every product grid becomes a mini party — animated borders, subtle 3D tilts, and smooth transitions that make browsing addictive.
                 </p>
               </div>
-              <Image src="/y2k/dancing-cards.gif" alt="Y2K Theme Dancing Cards" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/dancing-cards.gif" alt="Y2K Theme Dancing Cards" width={600} height={400} unoptimized className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Countup Sections */}
@@ -130,7 +131,7 @@ export default function Y2KTheme() {
                   They&apos;re lightweight, eye-catching, and auto-trigger only when visible, so no performance hit.
                 </p>
               </div>
-              <Image src="/y2k/countup-timer.gif" alt="Y2K Theme Countup Timer" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/countup-timer.gif" alt="Y2K Theme Countup Timer" width={600} height={400} unoptimized className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
 
             {/* Optimised Product Layouts */}
@@ -147,7 +148,7 @@ export default function Y2KTheme() {
                   Clean, fast-loading, and responsive down to the pixel. Because a theme that looks good is great… but one that sells? Even better.
                 </p>
               </div>
-              <Image src="/y2k/product.gif" alt="Y2K Product Layout" width={600} height={400} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+              <Image src="/y2k/product.gif" alt="Y2K Product Layout" width={600} height={400} unoptimized className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
@@ -266,16 +267,12 @@ export default function Y2KTheme() {
               
               {/* Right side - Demo Button */}
               <div className="flex flex-col items-center col-span-3 md:col-span-2 justify-center">
-                <a href="https://y2k-girly-theme.myshopify.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://y2k-girly-theme.myshopify.com/?_ab=0&_fd=0&_sc=1" target="_blank" rel="noopener noreferrer">
                   <button className="bg-purple text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-purple/90 transition-colors flex items-center justify-center gap-3 cursor-pointer mb-4">
                     <Play className="w-6 h-6" />
                     View Live Demo
                   </button>
                 </a>
-                <div>
-                  <p className="text-sm text-charcoal/60 mb-1">Demo Password:</p>
-                  <code className="bg-white/70 px-3  ml-4 py-1 rounded text-charcoal font-mono">demo</code>
-                </div>
               </div>
             </div>
           </div>
@@ -449,13 +446,12 @@ export default function Y2KTheme() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="flex flex-col items-center gap-2">
-                <a href="https://y2k-girly-theme.myshopify.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://y2k-girly-theme.myshopify.com/?_ab=0&_fd=0&_sc=1" target="_blank" rel="noopener noreferrer">
                 <button className="bg-yellow text-purple px-8 py-4 rounded-xl font-bold text-xl hover:bg-yellow/90 transition-colors flex items-center justify-center gap-3 cursor-pointer">
                   <Play className="w-6 h-6" />
                   View Demo
                 </button>
                 </a>
-                <p className="text-sm text-charcoal/60">Password: <code className="bg-white/70 px-2 py-1 rounded text-charcoal font-mono">demo</code></p>
               </div>
               <Y2KBuyLink>
                 <span className="text-white">Buy Now – £120</span>
@@ -527,12 +523,11 @@ export default function Y2KTheme() {
                <span className="text-white">Buy Now – £120</span>
                </Y2KBuyLink>
               <div className="flex flex-col items-center gap-2">
-                <a href="https://y2k-girly-theme.myshopify.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://y2k-girly-theme.myshopify.com/?_ab=0&_fd=0&_sc=1" target="_blank" rel="noopener noreferrer">
               <button className="bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-xl hover:bg-white/30 transition-colors flex items-center justify-center gap-3 border border-white/30 cursor-pointer">
                 VIEW DEMO
               </button>
               </a>
-              <p className="text-sm text-white/80">Password: <code className="bg-white/20 px-2 py-1 rounded text-white font-mono">demo</code></p>
               </div>
           </div>
         </div>

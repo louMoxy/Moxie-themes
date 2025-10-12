@@ -1,6 +1,5 @@
 import { motion, useMotionValue } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import Link from 'next/link';
 import CTAButton from './CTAButton';
 
 
@@ -9,7 +8,7 @@ const content = [
     title: 'Websites that don\'t just sit there — they bloody work',
     subtitle: 'Shopify templates with bite. SEO that actually delivers.',
     cta: 'Shop Templates',
-    ctaLink: '/templates',
+    ctaLink: '/templates/y2k-theme',
     cta2: 'Book an SEO Audit',
     cta2Link: '/contact',
   },
@@ -17,7 +16,7 @@ const content = [
     title: 'Shopify Templates With Bite',
     subtitle: 'Unique, fast, and SEO-friendly themes for small businesses who want more than the same old Shopify look..',
     cta: 'Shop Templates',
-    ctaLink: '/templates'
+    ctaLink: '/templates/y2k-theme'
   },
   {
     title: 'SEO Audits — No Jargon, No Fluff',
