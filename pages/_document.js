@@ -31,6 +31,7 @@ class MyDocument extends Document {
             <input type="text" name="name" />
             <input type="email" name="email" />
             <textarea name="message"></textarea>
+            <input type="hidden" name="bot-field" />
           </form>
           
           <Main />

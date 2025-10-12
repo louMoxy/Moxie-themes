@@ -18,35 +18,29 @@ export default function ContactForm() {
     });
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...formData })
-      });
-
-      if (response.ok) {
+    
+    const formData = new FormData(e.target);
+    
+    fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
-      } else {
+      })
+      .catch(error => {
+        console.error('Error:', error);
         setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -59,6 +53,7 @@ export default function ContactForm() {
         className="space-y-6"
       >
         <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         
         <div>
           <label htmlFor="name" className="block text-sm font-medium font-body text-white mb-2">
