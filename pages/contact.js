@@ -89,7 +89,7 @@ export default function Contact({ globalData }) {
                   <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg flex items-center space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                     <p className="text-green-100 font-body">
-                      Thank you for your message! I'll get back to you soon.
+                      Thank you for your message! I&apos;ll get back to you soon.
                     </p>
                   </div>
                 )}
