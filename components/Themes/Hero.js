@@ -99,6 +99,7 @@ export const Hero = () => {
             {/* Theme GIF */}
             <div className="rounded-2xl bg-white/10 backdrop-blur-md h-[400px] md:h-[500px] lg:h-[900px] max-w-[300px] md:max-w-none mx-auto md:mx-0 border border-white/20 shadow-2xl overflow-hidden">
               <Image 
+                unoptimized
                 src="/y2k/Promo.gif" 
                 alt="Y2K Theme in Action" 
                 width={600}

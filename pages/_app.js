@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
               duration: 1.2,
               ease: [0.25, 0.46, 0.45, 0.94]
             }}
-            className="fixed inset-0 z-50 pointer-events-none"
+            className="fixed inset-0 z-100 pointer-events-none"
             style={{
               background: 'linear-gradient(90deg, transparent 0%, #8B5CF6 50%, transparent 100%)',
               clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)'

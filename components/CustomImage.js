@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CustomImage({ src, alt, ...otherProps }) {
   return (
-    <figure className="aspect-4/3 relative">
+    <figure className="h-full w-full relative">
       <Image
         className="object-cover object-top"
         src={src}

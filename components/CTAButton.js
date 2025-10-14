@@ -7,6 +7,7 @@ export default function CTAButton({
   children, 
   variant = 'primary', 
   className = '',
+  theme = 'auto', // 'auto' | 'light' | 'dark' (controls arrow + motion bg contrast)
   onClick,
   ...props 
 }) {
@@ -14,26 +15,25 @@ export default function CTAButton({
   
   const variantClasses = {
     primary: "bg-purple text-white border-2 border-purple hover:bg-white hover:text-purple",
-    secondary: "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white"
+    secondary: "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white",
+    unstyled: ""
   };
 
-  const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
+  const buttonClasses = `${baseClasses} ${variantClasses[variant] ?? ''} ${className}`;
+
+  const useDarkAccent = theme === 'dark' || (theme === 'auto' && variant === 'primary');
 
   const ButtonContent = (
     <>
       {/* Animated background element */}
       <motion.div
-        className={`absolute left-0 top-0 w-6 h-full rounded-r-full transform -translate-x-full scale-x-0 group-hover:translate-x-0 group-hover:scale-x-150 transition-all duration-300 ease-out ${
-          variant === 'primary' ? 'bg-purple/20' : 'bg-white/20'
-        }`}
+        className={`absolute left-0 top-0 w-6 h-full rounded-r-full transform -translate-x-full scale-x-0 group-hover:translate-x-0 group-hover:scale-x-150 transition-all duration-300 ease-out ${theme === 'light' ? 'bg-purple/20' : useDarkAccent ? 'bg-purple/20' : 'bg-white/20'}`}
         style={{ transformOrigin: "left center" }}
       />
       
       {/* Arrow icon */}
       <motion.span
-        className={`absolute left-2 top-1/2 transform -translate-y-1/2 -translate-x-2 text-sm font-bold opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-100 ${
-          variant === 'primary' ? 'text-purple' : 'text-white'
-        }`}
+        className={`absolute left-2 top-1/2 transform -translate-y-1/2 -translate-x-2 text-sm font-bold opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-100 ${theme === 'light' ? 'text-purple' : useDarkAccent ? 'text-purple' : 'text-white'}`}
       >
         <ChevronRight />
       </motion.span>
