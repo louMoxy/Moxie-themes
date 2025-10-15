@@ -25,16 +25,22 @@ export default function Index({ globalData }) {
       "https://x.com/moxie_themes",
       "https://instagram.com/moxiethemes"
     ],
-    "offers": [
+    "makesOffer": [
       {
-        "@type": "Service",
-        "name": "Shopify Templates",
-        "description": "Unique, fast-loading Shopify templates with modern design"
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Shopify Templates",
+          "description": "Unique, fast-loading Shopify templates with modern design"
+        }
       },
       {
-        "@type": "Service", 
-        "name": "SEO Audits",
-        "description": "Comprehensive SEO audits to improve your website's search rankings"
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SEO Audits",
+          "description": "Comprehensive SEO audits to improve your website's search rankings"
+        }
       }
     ]
   };

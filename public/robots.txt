@@ -1,0 +1,6 @@
+# robots.txt for Moxie Themes
+
+User-agent: *
+Allow: /
+
+Sitemap: https://moxiethemes.com/sitemap.xml
