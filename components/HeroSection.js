@@ -144,7 +144,7 @@ export default function HeroSection() {
   }, [activeTab]);
 
   return (
-    <section ref={heroRef} className="relative min-h-[70vh] flex items-center px-6 py-18 overflow-hidden md:cursor-none">
+    <section ref={heroRef} className="relative min-h-[90vh] flex items-center px-2 py-2 overflow-hidden md:cursor-none">
       {/* Mobile animated gradient background */}
       <div className="absolute inset-0 md:hidden mobile-gradient-bg" />
       
@@ -170,15 +170,15 @@ export default function HeroSection() {
       
       {/* Main Content in a Fake Desktop/Browser Window (desktop only) */}
       <motion.div 
-        className="hidden md:block relative z-10 w-full max-w-4xl cursor-grab active:cursor-grabbing ml-48"
+        className="hidden md:block relative z-10 w-full max-w-2xl cursor-grab active:cursor-grabbing ml-8"
         drag
         dragMomentum={false}
         dragElastic={1}
         dragConstraints={{
-          top: -400,
-          left: -100,
-          right: 900, // change dependent on screen size
-          bottom: 400
+          top: -300,
+          left: -50,
+          right: 400, // change dependent on screen size
+          bottom: 300
         }}
       >
         <div className="bg-white/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/30 rounded-2xl shadow-2xl overflow-hidden">
@@ -225,7 +225,7 @@ export default function HeroSection() {
               </div>
           </div>
           {/* Window content */}
-          <div className="p-6 md:p-10">
+          <div className="p-6 md:p-8">
             {/* Dynamic Content Based on Active Tab */}
             <motion.div
               key={activeTab}
@@ -234,11 +234,11 @@ export default function HeroSection() {
               transition={{ duration: 0.3 }}
             >
               {/* Headline - Left Aligned */}
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-heading text-charcoal mb-6 leading-tight text-left">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-charcoal mb-6 leading-tight text-left">
                 {content[activeTab].title}
               </h1>
               {/* Subhead - Left Aligned */}
-              <p className="text-lg md:text-xl font-body text-charcoal/80 mb-10 leading-relaxed text-left max-w-xl">
+              <p className="text-base md:text-lg font-body text-charcoal/80 mb-8 leading-relaxed text-left max-w-xl">
                 {content[activeTab].subtitle}
               </p>
               {/* CTA Buttons - Left Aligned */}
@@ -287,7 +287,7 @@ export default function HeroSection() {
       
       {/* Bottom Terminal (desktop only) */}
       <motion.div 
-        className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 w-180 h-80 cursor-grab active:cursor-grabbing"
+        className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 w-100 h-80 cursor-grab active:cursor-grabbing"
         drag
         dragMomentum={false}
         dragElastic={1}
@@ -297,7 +297,7 @@ export default function HeroSection() {
           right: 900, // change dependent on screen size
           bottom: 400
         }}
-        initial={{ x: "90%", y: 0 }}
+        initial={{ x: "40%", y: 0 }}
       >
         <div className="bg-black/90 border border-green-400/30 rounded-lg shadow-2xl backdrop-blur-sm overflow-hidden">
           {/* Terminal Header */}

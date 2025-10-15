@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import CTAButton from '../components/CTAButton';
@@ -225,12 +226,12 @@ export default function Services() {
             Ready to stop babysitting a useless website?
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a 
+            <Link 
               href="/contact" 
               className="bg-yellow text-purple px-8 py-4 rounded-lg font-bold font-body text-lg hover:bg-yellow/90 transition-colors border-4 border-yellow"
             >
               Get in touch
-            </a>
+            </Link>
             <a 
               href="mailto:hello@moxiethemes.com" 
               className="border-4 border-pink text-white px-8 py-4 rounded-lg font-bold font-body text-lg hover:bg-pink hover:text-white transition-colors"
