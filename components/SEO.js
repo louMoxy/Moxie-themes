@@ -8,12 +8,14 @@ export default function SEO({
   ogType = 'website',
   twitterCard = 'summary_large_image',
   keywords,
-  author = 'Moxie Themes'
+  author = 'Moxie Themes',
+  noindex = false
 }) {
   const siteName = 'Moxie Themes';
   const siteUrl = 'https://moxiethemes.com';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+  const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 
   return (
     <Head>
@@ -44,7 +46,7 @@ export default function SEO({
       <meta name="twitter:creator" content="@moxie_themes" />
       
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robotsContent} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       
