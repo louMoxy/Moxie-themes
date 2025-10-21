@@ -16,10 +16,12 @@
   "scripts": {
     "dev": "next",
     "dev:watch": "next-remote-watch ./posts",
-    "build": "next build",
+    "build": "build:sitemap",
+    "build:sitemap": "node scripts/generate-sitemap.js && next build",
     "start": "next start",
     "export": "next build && next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",

@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build:sitemap"
   publish = ".next"
 
 [build.environment]
@@ -9,24 +9,13 @@
 [functions]
   directory = "netlify/functions"
 
-# Sitemap Plugin
-[[plugins]]
-package = "@netlify/plugin-sitemap"
-
-  [plugins.inputs]
-  buildDir = ".next"
-  changeFreq = "weekly"
-  priority = 0.7
-  prettyURLs = true
-  trailingSlash = true
-
 # Submit Sitemap Plugin
 [[plugins]]
 package = "netlify-plugin-submit-sitemap"
 
   [plugins.inputs]
   baseUrl = "https://moxiethemes.com"
-  sitemapPath = "/sitemap.xml"
+  sitemapPath = "/out/sitemap.xml"
   ignorePeriod = 0
   providers = [
     "google",
@@ -48,4 +37,9 @@ package = "netlify-plugin-submit-sitemap"
 [[redirects]]
   from = "/api/og-default"
   to = "/.netlify/functions/og-image"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/out/sitemap.xml"
   status = 200
