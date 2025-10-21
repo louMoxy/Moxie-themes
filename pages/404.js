@@ -43,8 +43,8 @@ export default function Custom404({ globalData }) {
               Oops! This page went missing
             </h2>
             <p className="text-lg font-body text-off-white mb-8 max-w-2xl mx-auto">
-              Looks like this page decided to take a coffee break. Don't worry though - 
-              we'll get you back to the good stuff in just a moment!
+              Looks like this page decided to take a coffee break. Don&apos;t worry though - 
+              we&apos;ll get you back to the good stuff in just a moment!
             </p>
           </div>
 
@@ -69,10 +69,10 @@ export default function Custom404({ globalData }) {
           {/* Contact Section */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
             <h3 className="text-2xl font-bold font-heading text-off-white mb-4">
-              Still lost? Let's chat!
+              Still lost? Let&apos;s chat!
             </h3>
             <p className="text-lg font-body text-off-white mb-6">
-              Can't find what you're looking for? Drop me a line and I'll help you out.
+              Can&apos;t find what you&apos;re looking for? Drop me a line and I&apos;ll help you out.
             </p>
             
             <ContactForm />
