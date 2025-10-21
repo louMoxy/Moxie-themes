@@ -20,6 +20,19 @@ package = "@netlify/plugin-sitemap"
   prettyURLs = true
   trailingSlash = true
 
+# Submit Sitemap Plugin
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+
+  [plugins.inputs]
+  baseUrl = "https://moxiethemes.com"
+  sitemapPath = "/sitemap.xml"
+  ignorePeriod = 0
+  providers = [
+    "google",
+    "yandex"
+  ]
+
 # Headers for better caching
 [[headers]]
   for = "/images/og-*.jpg"
