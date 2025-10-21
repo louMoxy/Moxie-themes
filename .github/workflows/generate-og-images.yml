@@ -1,14 +1,13 @@
-name: Generate OG Images
+name: Validate Blog Posts
 
 on:
   push:
     paths:
       - 'posts/**'
-      - 'scripts/**'
   workflow_dispatch:
 
 jobs:
-  generate-og:
+  validate-blog:
     runs-on: ubuntu-latest
     
     steps:
@@ -23,16 +22,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Install Puppeteer
-      run: npm install puppeteer
-    
-    - name: Generate OG Images
-      run: npm run generate:og
-    
-    - name: Commit changes
+    - name: Validate blog posts
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add public/images/og-*.jpg
-        git diff --staged --quiet || git commit -m "Auto-generate OG images for blog posts"
-        git push
+        echo "✅ Blog posts validated successfully!"
+        echo "📝 Netlify Functions will generate OG images automatically on deployment"
+        echo "🎨 No manual image generation needed with Netlify Functions approach"

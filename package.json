@@ -17,11 +17,9 @@
     "dev": "next",
     "dev:watch": "next-remote-watch ./posts",
     "build": "next build",
-    "build:og": "node scripts/generate-og-images.js && next build",
     "start": "next start",
     "export": "next build && next export",
-    "lint": "next lint",
-    "generate:og": "node scripts/generate-og-images.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.9.0",
