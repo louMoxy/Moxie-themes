@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CheckCircle, XCircle } from 'lucide-react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -7,49 +8,68 @@ export default function ContactForm() {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
+    
+    // Reset previous states
+    setIsSuccess(false);
+    setIsError(false);
+    
+    const formData = new FormData(e.target);
+    
+    fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        setIsSuccess(true);
+        // Reset form
+        e.target.reset();
         setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setIsError(true);
+      });
   };
 
   return (
     <div className="max-w-md mx-auto">
-      <form 
-        onSubmit={handleSubmit}
-        className="space-y-6"
-      >
+      {/* Success Message */}
+      {isSuccess && (
+        <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg flex items-center space-x-3">
+          <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
+          <p className="text-green-100 font-body">
+            Thank you for your message! I&apos;ll get back to you soon.
+          </p>
+        </div>
+      )}
+      
+      {/* Error Message */}
+      {isError && (
+        <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center space-x-3">
+          <XCircle className="w-6 h-6 text-red-400 flex-shrink-0" />
+          <p className="text-red-100 font-body">
+            There was an error sending your message. Please try again.
+          </p>
+        </div>
+      )}
+      
+      <form name="contact" onSubmit={handleSubmit} className="space-y-6">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         
         <div>
           <label htmlFor="name" className="block text-sm font-medium font-body text-white mb-2">
@@ -59,8 +79,9 @@ export default function ContactForm() {
             type="text"
             id="name"
             name="name"
+            autoComplete="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
             required
             className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
             placeholder="What should I call you?"
@@ -75,8 +96,9 @@ export default function ContactForm() {
             type="email"
             id="email"
             name="email"
+            autoComplete="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleInputChange}
             required
             className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors placeholder-white/70"
             placeholder="your@email.com"
@@ -91,7 +113,7 @@ export default function ContactForm() {
             id="message"
             name="message"
             value={formData.message}
-            onChange={handleChange}
+            onChange={handleInputChange}
             required
             rows={4}
             className="w-full px-4 py-3 rounded-lg border-2 border-white/30 font-body text-white bg-white/10 focus:outline-none focus:border-white/50 transition-colors resize-none placeholder-white/70"
@@ -101,23 +123,10 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-yellow text-purple px-6 py-3 rounded-lg font-bold font-body hover:bg-yellow/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-yellow text-purple px-6 py-3 rounded-lg font-bold font-body hover:bg-yellow/90 transition-colors"
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          Send Message
         </button>
-
-        {submitStatus === 'success' && (
-          <div className="p-4 bg-green-500/20 border border-green-400/50 text-green-200 rounded-lg text-center font-body">
-            Thanks! I&apos;ll get back to you soon.
-          </div>
-        )}
-
-        {submitStatus === 'error' && (
-          <div className="p-4 bg-red-500/20 border border-red-400/50 text-red-200 rounded-lg text-center font-body">
-            Oops! Something went wrong. Please try again or email me directly.
-          </div>
-        )}
       </form>
     </div>
   );

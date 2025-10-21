@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "next",
     "dev:watch": "next-remote-watch ./posts",
-    "build": "build:sitemap",
+    "build": "next build",
     "build:sitemap": "node scripts/generate-sitemap.js && next build",
     "start": "next start",
     "export": "next build && next export",
