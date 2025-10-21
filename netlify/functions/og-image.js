@@ -1,139 +1,71 @@
-const puppeteer = require('puppeteer');
-
 exports.handler = async (event, context) => {
   const { title, description, author, date } = event.queryStringParameters || {};
   
   try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
-    
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1200, height: 630 });
-    
-    const html = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <style>
-          body {
-            margin: 0;
-            padding: 0;
-            width: 1200px;
-            height: 630px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: system-ui, -apple-system, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-          }
-          body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), 
-                       radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
-          }
-          .content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 60px;
-            max-width: 900px;
-          }
-          .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
-          }
-          .logo-icon {
-            width: 80px;
-            height: 80px;
-            background: #ffd700;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 24px;
-            font-size: 36px;
-            font-weight: bold;
-            color: #1a1a2e;
-          }
-          .logo-text {
-            font-size: 48px;
-            font-weight: bold;
-            color: #ffffff;
-          }
-          .title {
-            font-size: 48px;
-            font-weight: bold;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          }
-          .description {
-            font-size: 24px;
-            color: #e0e0e0;
-            line-height: 1.4;
-            margin-bottom: 32px;
-          }
-          .meta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            font-size: 18px;
-            color: #b0b0b0;
-          }
-          .accent {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, #ffd700 0%, #ff6b6b 50%, #4ecdc4 100%);
-          }
-        </style>
-      </head>
-      <body>
-        <div class="content">
-          <div class="logo">
-            <div class="logo-icon">M</div>
-            <div class="logo-text">Moxie Themes</div>
-          </div>
-          <div class="title">${title || 'Moxie Themes Blog'}</div>
-          <div class="description">${description || 'Premium Shopify themes and SEO services'}</div>
-          <div class="meta">
-            <span>By ${author || 'Moxie Themes'}</span>
-            ${date ? `<span>•</span><span>${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>` : ''}
-          </div>
-        </div>
-        <div class="accent"></div>
-      </body>
-      </html>
+    // Create SVG content
+    const svg = `
+      <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+          </linearGradient>
+          <radialGradient id="overlay1" cx="20%" cy="80%" r="50%">
+            <stop offset="0%" style="stop-color:rgba(120,119,198,0.3);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(120,119,198,0);stop-opacity:0" />
+          </radialGradient>
+          <radialGradient id="overlay2" cx="80%" cy="20%" r="50%">
+            <stop offset="0%" style="stop-color:rgba(255,119,198,0.3);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(255,119,198,0);stop-opacity:0" />
+          </radialGradient>
+          <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#ff6b6b;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        
+        <!-- Background -->
+        <rect width="1200" height="630" fill="url(#bg)"/>
+        
+        <!-- Overlay patterns -->
+        <rect width="1200" height="630" fill="url(#overlay1)"/>
+        <rect width="1200" height="630" fill="url(#overlay2)"/>
+        
+        <!-- Logo -->
+        <g transform="translate(600, 120)">
+          <rect x="-40" y="-40" width="80" height="80" rx="16" fill="#ffd700"/>
+          <text x="0" y="10" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="bold" fill="#1a1a2e">M</text>
+          <text x="60" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">Moxie Themes</text>
+        </g>
+        
+        <!-- Title -->
+        <text x="600" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">
+          <tspan x="600" dy="0">${(title || 'Moxie Themes Blog').substring(0, 50)}${(title || '').length > 50 ? '...' : ''}</tspan>
+        </text>
+        
+        <!-- Description -->
+        <text x="600" y="340" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e0e0e0">
+          <tspan x="600" dy="0">${(description || 'Premium Shopify themes and SEO services').substring(0, 80)}${(description || '').length > 80 ? '...' : ''}</tspan>
+        </text>
+        
+        <!-- Meta info -->
+        <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#b0b0b0">
+          <tspan x="600" dy="0">By ${author || 'Moxie Themes'}${date ? ` • ${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}` : ''}</tspan>
+        </text>
+        
+        <!-- Bottom accent -->
+        <rect x="0" y="622" width="1200" height="8" fill="url(#accent)"/>
+      </svg>
     `;
-    
-    await page.setContent(html);
-    const screenshot = await page.screenshot({ type: 'png' });
-    await browser.close();
     
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'image/png',
+        'Content-Type': 'image/svg+xml',
         'Cache-Control': 'public, max-age=31536000'
       },
-      body: screenshot.toString('base64'),
-      isBase64Encoded: true
+      body: svg
     };
   } catch (error) {
     return {
