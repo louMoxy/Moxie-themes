@@ -9,6 +9,17 @@
 [functions]
   directory = "netlify/functions"
 
+# Sitemap Plugin
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = ".next"
+  changeFreq = "weekly"
+  priority = 0.7
+  prettyURLs = true
+  trailingSlash = true
+
 # Headers for better caching
 [[headers]]
   for = "/images/og-*.jpg"
