@@ -12,6 +12,12 @@ export default function BlogPost({ mdxSource, frontMatter, slug, documentPath, n
         title={frontMatter.title}
         description={frontMatter.description || ''}
         canonical={`/blog/${slug}`}
+        ogType="article"
+        author={frontMatter.author || 'Moxie Themes'}
+        publishedTime={frontMatter.date}
+        section="Blog"
+        tags={frontMatter.tags}
+        keywords={frontMatter.tags?.join(', ')}
       />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
