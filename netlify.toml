@@ -1,3 +1,27 @@
 [build]
-  command = "npm run build"
+  command = "npm run build:og"
   publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Netlify Functions
+[functions]
+  directory = "netlify/functions"
+
+# Headers for better caching
+[[headers]]
+  for = "/images/og-*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects for OG images
+[[redirects]]
+  from = "/api/og-image"
+  to = "/.netlify/functions/og-image"
+  status = 200
+
+[[redirects]]
+  from = "/api/og-default"
+  to = "/.netlify/functions/og-image"
+  status = 200

@@ -21,10 +21,10 @@ export default function SEO({
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
   
-  // Generate dynamic OG image URL for blog posts
+  // Use Netlify Functions for dynamic OG images
   const dynamicOgImage = ogImage || (canonical && canonical.includes('/blog/') 
-    ? `${siteUrl}/api/og-image?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&author=${encodeURIComponent(author)}${publishedTime ? `&date=${publishedTime}` : ''}`
-    : `${siteUrl}/api/og-default`);
+    ? `${siteUrl}/.netlify/functions/og-image?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&author=${encodeURIComponent(author)}${publishedTime ? `&date=${publishedTime}` : ''}`
+    : `${siteUrl}/.netlify/functions/og-image?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&author=${encodeURIComponent(author)}`);
 
   return (
     <Head>
