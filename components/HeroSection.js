@@ -6,10 +6,10 @@ import CTAButton from './CTAButton';
 const content = [
   {
     title: 'Websites that don\'t just sit there — they bloody work',
-    subtitle: 'Shopify templates with bite. SEO that actually delivers.',
+    subtitle: 'I build SEO-optimised Shopify themes and fully custom, editable websites for small businesses who want to look great and grow.',
     cta: 'Shop Templates',
     ctaLink: '/templates/y2k-theme',
-    cta2: 'Book an SEO Audit',
+    cta2: 'Lets Chat',
     cta2Link: '/contact',
   },
   {

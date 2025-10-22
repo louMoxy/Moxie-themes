@@ -7,11 +7,15 @@ import CTAButton from '../components/CTAButton';
 import { Mail,  X, Instagram as InstagramIcon, Search, Wrench, Layout as LayoutIcon, ChevronDown, ShoppingCart, Square, Code2 } from 'lucide-react';
 
 export default function Services() {
-  const [activeSection, setActiveSection] = useState('audit');
-  const [openPlatform, setOpenPlatform] = useState('shopify');
+  const [activeSection, setActiveSection] = useState('design');
+  const [openPlatforms, setOpenPlatforms] = useState(['custom']);
 
   const togglePlatform = (platform) => {
-    setOpenPlatform(prev => (prev === platform ? '' : platform));
+    setOpenPlatforms(prev => 
+      prev.includes(platform) 
+        ? prev.filter(p => p !== platform)
+        : [...prev, platform]
+    );
   };
 
   return (
@@ -42,9 +46,9 @@ export default function Services() {
           <div className="w-full">
             <div className="bg-white rounded-2xl p-2 flex flex-col sm:flex-row gap-2 sm:gap-3">
               {[
+               { id: 'design', label: 'Website Design & Setup', icon: LayoutIcon },
                 { id: 'audit', label: 'SEO Audit', icon: Search },
                 { id: 'fix', label: 'SEO Fix Packages', icon: Wrench },
-                { id: 'design', label: 'Website Design & Setup', icon: LayoutIcon }
               ].map(item => (
                 <button
                   key={item.id}
@@ -115,23 +119,46 @@ export default function Services() {
               <span className="inline-flex items-center rounded-full bg-teal/10 text-charcoal border border-teal/20 px-4 py-1.5 text-sm font-body font-semibold">from £900</span>
             </div>
             <p className="font-body text-charcoal/90 mb-6">Shopify, Squarespace, or fully custom builds — all with brains behind the beauty.</p>
-            <p className="font-body text-charcoal/90 mb-6">Whether you’re starting fresh or your old site’s seen better days, I’ll design and build something that looks gorgeous and performs.</p>
+            <p className="font-body text-charcoal/90 mb-6">Whether you’re starting from scratch or your old site’s feeling dated, I’ll design and build something that feels like you — fast, functional, and easy to manage.</p>
 
             {/* Platform Accordions */}
             <div className="space-y-4 mb-6">
+                <div className="border-4 border-teal/30 rounded-xl overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => togglePlatform('custom')}
+                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatforms.includes('custom') ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
+                  aria-expanded={openPlatforms.includes('custom')}
+                  aria-controls="platform-custom"
+                >
+                  <span className="inline-flex items-center gap-2"><Code2 className="w-4 h-4" /> Custom Builds</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatforms.includes('custom') ? 'rotate-180' : ''}`} />
+                </button>
+                {openPlatforms.includes('custom') && (
+                  <div id="platform-custom" className="px-6 py-5 bg-white">
+                    <ul className="list-disc pl-6 space-y-2 font-body text-charcoal/90">
+                      <li>Bespoke designs, built for brand personality</li>
+                      <li>Perfect for businesses ready to level up</li>
+                      <li>Optimised for speed and performance from day one</li>
+                      <li>Easy to update and manage yourself with CMS</li>
+                      <li>Custom integrations (forms, booking, email tools, etc.)</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
               {/* Shopify */}
               <div className="border-4 border-purple/30 rounded-xl overflow-hidden">
                 <button
                   type="button"
                   onClick={() => togglePlatform('shopify')}
-                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatform === 'shopify' ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
-                  aria-expanded={openPlatform === 'shopify'}
+                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatforms.includes('shopify') ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
+                  aria-expanded={openPlatforms.includes('shopify')}
                   aria-controls="platform-shopify"
                 >
                   <span className="inline-flex items-center gap-2"><ShoppingCart className="w-4 h-4" /> Shopify</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatform === 'shopify' ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatforms.includes('shopify') ? 'rotate-180' : ''}`} />
                 </button>
-                {openPlatform === 'shopify' && (
+                {openPlatforms.includes('shopify') && (
                   <div id="platform-shopify" className="px-6 py-5 bg-white">
                     <ul className="list-disc pl-6 space-y-2 font-body text-charcoal/90">
                       <li>Full theme setup or custom build</li>
@@ -147,14 +174,14 @@ export default function Services() {
                 <button
                   type="button"
                   onClick={() => togglePlatform('squarespace')}
-                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatform === 'squarespace' ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
-                  aria-expanded={openPlatform === 'squarespace'}
+                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatforms.includes('squarespace') ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
+                  aria-expanded={openPlatforms.includes('squarespace')}
                   aria-controls="platform-squarespace"
                 >
                   <span className="inline-flex items-center gap-2"><Square className="w-4 h-4" /> Squarespace</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatform === 'squarespace' ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatforms.includes('squarespace') ? 'rotate-180' : ''}`} />
                 </button>
-                {openPlatform === 'squarespace' && (
+                {openPlatforms.includes('squarespace') && (
                   <div id="platform-squarespace" className="px-6 py-5 bg-white">
                     <ul className="list-disc pl-6 space-y-2 font-body text-charcoal/90">
                       <li>Ideal for service-based businesses</li>
@@ -165,28 +192,6 @@ export default function Services() {
                 )}
               </div>
 
-              {/* Custom Builds */}
-              <div className="border-4 border-teal/30 rounded-xl overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => togglePlatform('custom')}
-                  className={`w-full text-left px-6 py-4 font-heading font-bold transition-colors flex items-center justify-between ${openPlatform === 'custom' ? 'bg-purple/10 text-purple' : 'bg-white text-charcoal hover:bg-charcoal/5'}`}
-                  aria-expanded={openPlatform === 'custom'}
-                  aria-controls="platform-custom"
-                >
-                  <span className="inline-flex items-center gap-2"><Code2 className="w-4 h-4" /> Custom Builds</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${openPlatform === 'custom' ? 'rotate-180' : ''}`} />
-                </button>
-                {openPlatform === 'custom' && (
-                  <div id="platform-custom" className="px-6 py-5 bg-white">
-                    <ul className="list-disc pl-6 space-y-2 font-body text-charcoal/90">
-                      <li>Bespoke designs, built for brand personality</li>
-                      <li>Perfect for businesses ready to level up</li>
-                      <li>Optimised for speed and performance from day one</li>
-                    </ul>
-                  </div>
-                )}
-              </div>
             </div>
 
             <p className="font-body text-charcoal/90 mb-6">All sites include basic on-page SEO setup, responsive layouts, and performance testing — because if it’s not fast, it’s not finished.</p>

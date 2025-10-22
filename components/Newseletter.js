@@ -25,7 +25,7 @@ export const Newseletter = () => {
           </div>
           <div className="absolute top-40 left-80 animate-float-rotate-slower">
             <Badge className="w-24 h-24 text-teal fill-teal/60" />
-            <span className="absolute inset-0 flex items-center justify-center text-base font-bold text-white drop-shadow-sm">Behind</span>
+            <span className="absolute inset-0 flex items-center justify-center text-base font-bold text-white drop-shadow-sm">Tips</span>
           </div>
           <div className="absolute top-16 right-80 animate-float-rotate-slow">
             <Badge className="w-14 h-14 text-purple fill-purple/60" />
@@ -41,7 +41,7 @@ export const Newseletter = () => {
           </div>
           <div className="absolute bottom-32 right-68 animate-float-rotate-slow">
             <Badge className="w-28 h-28 text-teal fill-teal/60" />
-            <span className="absolute inset-0 flex items-center justify-center text-s font-bold text-white drop-shadow-sm">Scenes</span>
+            <span className="absolute inset-0 flex items-center justify-center text-s font-bold text-white drop-shadow-sm">Gossip</span>
           </div>
           <div className="absolute top-24 left-32 animate-float-rotate">
             <Badge className="w-26 h-26 text-purple fill-purple/60" />

@@ -33,8 +33,7 @@ function FixCard({
           </div>
           <Link href={ctaHref} className={`mt-8 inline-block px-6 py-3 rounded-lg font-body font-medium transition-colors ${ctaClass}`}>{ctaText}</Link>
         </div>
-        <div className="absolute z-50 left-0 right-0 shadow-lg bottom-0 translate-y-30 lg:translate-y-10 group-hover:translate-y-30 transition-transform duration-300 bg-white backdrop-blur-md border-t border-black/10 rounded-b-2xl p-5">
-          <h4 className="text-base font-heading font-bold text-charcoal mb-2">{detailsTitle}</h4>
+        <div className="absolute z-50 left-0 right-0 shadow-lg bottom-0 translate-y-30 lg:translate-y-15 group-hover:translate-y-35 transition-transform duration-300 bg-white backdrop-blur-md border-t border-black/10 rounded-b-2xl p-5">
           <ul className="list-disc pl-5 space-y-1 text-sm text-charcoal/80">
             {details.map((item, idx) => (
               <li key={idx}>{item}</li>
@@ -56,64 +55,66 @@ export default function PickYourFix() {
         <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal text-center mb-12">Pick Your Fix</h2>
 
         <div className="grid lg:grid-cols-3 lg:gap-x-4 gap-y-42">
-          <FixCard
-            icon={<Search className="w-6 h-6" />}
-            title="SEO Audit"
-            price="£80"
-            tagline="Find what’s broken and fix it before Google ghosts you."
-            ctaHref="#contact-form"
-            ctaText="Book Audit"
-            ctaClass="bg-purple text-white hover:bg-purple/90"
-            detailsTitle="What you get"
-            details={[
-              'Broken links, speed, metadata check',
-              'Clear priority fixes',
-              'Quick wins you can ship today'
-            ]}
-            tilt="rotate-1"
-            bgClass="bg-gradient-to-br from-pink/20 via-yellow/20 to-teal/20"
-            iconBgClass="bg-purple"
-            iconTextClass="text-white"
-          />
+        <FixCard
+          icon={<Store className="w-6 h-6" />}
+          title="Shopify Theme Setup"
+          price="from £200"
+          tagline="Your dream store, designed, set up, and ready to sell."
+          ctaHref="/contact"
+          ctaText="Book Setup"
+          ctaClass="bg-purple text-white hover:bg-purple/90"
+                    detailsTitle="Whats included"
+          details={[
+            'Theme installation & full store setup',
+            'Homepage, products & collections styled to match your brand',
+            'Basic SEO setup (titles, tags, and structure)',
+            'Training so you can edit it all yourself'
+          ]}
+          tilt="rotate-1"
+          bgClass="bg-gradient-to-br from-pink/20 via-purple/20 to-yellow/20"
+          iconBgClass="bg-pink"
+          iconTextClass="text-white"
+        />
+
+        <FixCard
+          icon={<Zap className="w-6 h-6" />}
+          title="Custom Website Build"
+          price="from £900"
+          tagline="A bespoke, fully editable site — built just for you."
+          ctaHref="/contact"
+          ctaText="Start Your Project"
+          ctaClass="bg-yellow text-purple hover:bg-yellow/90"
+          detailsTitle="Perfect for"
+          details={[
+            'Perfect for Service-based businesses & personal brands',
+            'Easy to update and manage yourself with CMS',
+            'Custom integrations (forms, booking, email tools, etc.)'
+          ]}
+          bgClass="bg-gradient-to-br from-yellow/20 via-pink/20 to-purple/20"
+          iconBgClass="bg-purple"
+          iconTextClass="text-yellow"
+        />
 
           <FixCard
-            icon={<Zap className="w-6 h-6" />}
-            title="Fix Package"
-            price="~£600"
-            tagline="I get my hands dirty so your site doesn’t have to."
-            ctaHref="#contact-form"
+            icon={<Search className="w-6 h-6" />}
+            title="SEO Fix Package"
+            price="from £600"
+            tagline="I get my hands dirty so your site doesnt have to."
+            ctaHref="/contact"
             ctaText="Get a Quote"
-            ctaClass="bg-yellow text-purple hover:bg-yellow/90"
+            ctaClass="bg-pink text-white hover:bg-pink/90"
             detailsTitle="What I fix"
             details={[
-              'Redirects, sitemaps, indexing issues',
-              'Core Web Vitals & speed',
-              'Tags, titles, and content gaps'
+              'Redirects, sitemaps, and indexing issues',
+              'Core Web Vitals & page speed',
+              'Meta tags, titles, and keyword gaps',
+              'Broken links, speed, metadata check',
+              'On-page structure & internal linking'
             ]}
-            tilt="-rotate-1"
+            tilt="rotate-1"
             bgClass="bg-gradient-to-br from-purple/20 via-pink/20 to-yellow/20"
             iconBgClass="bg-yellow"
             iconTextClass="text-purple"
-          />
-
-          <FixCard
-            icon={<Store className="w-6 h-6" />}
-            title="Shopify Setup"
-            price="~£300"
-            tagline="Launch without the midnight tears"
-            ctaHref="#contact-form"
-            ctaText="Set Me Up"
-            ctaClass="bg-pink text-white hover:bg-pink/90"
-            detailsTitle="What’s included"
-            details={[
-              'Theme install + essential apps',
-              'Collections, products, and payments',
-              'Launch checklist and support'
-            ]}
-            tilt="rotate-1"
-            bgClass="bg-gradient-to-br from-teal/20 via-yellow/20 to-pink/20"
-            iconBgClass="bg-pink"
-            iconTextClass="text-white"
           />
         </div>
       </div>
