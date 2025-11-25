@@ -188,6 +188,66 @@ const heroPhrases = [
 
 const FREE_TEMPLATE_URL = '/templates/y2k-theme';
 const WEBSITE_CHECKLIST_URL = 'https://moxiethemes.com/freebies/website-checklist.pdf';
+const WEBSITE_SERVICE_URL = 'https://moxiethemes.com/services/website';
+
+const serviceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Website Design & Development",
+  "name": "7-Day Website Launch",
+  "description": "Done-for-you Shopify, Squarespace, or custom websites designed, built, and optimised for SEO in just one week.",
+  "url": WEBSITE_SERVICE_URL,
+  "provider": {
+    "@type": "Organization",
+    "name": "Moxie Themes",
+    "url": "https://moxiethemes.com"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "600",
+    "highPrice": "1500",
+    "availability": "https://schema.org/InStock",
+    "url": WEBSITE_SERVICE_URL
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "7-Day Website Launch Platforms",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Shopify Build",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Shopify Website Setup",
+          "description": "Conversion-focused Shopify storefront built in one week."
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Squarespace Build",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Squarespace Website Setup",
+          "description": "Elegant, easy-to-manage Squarespace site with SEO baked in."
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Custom Build",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Next.js + CMS Build",
+          "description": "Fully custom build leveraging Next.js and headless CMS for performance and scalability."
+        }
+      }
+    ]
+  }
+};
 
 export default function WebsiteService() {
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -202,10 +262,12 @@ export default function WebsiteService() {
   return (
     <Layout>
       <SEO
-        title="7-Day Website Launch – Services"
-        description="Shopify, Squarespace, or custom websites launched in 7 days. Design, build, SEO, and integrations handled end-to-end."
+        title="7-Day Website Launch – Shopify, Squarespace & Custom Sites"
+        description="Get a conversion-ready Shopify, Squarespace, or custom website designed, built, and optimised for SEO in just 7 days — complete with integrations, launch support, and training."
         canonical="/services/website"
-        keywords="7 day website, Shopify expert, Squarespace design, custom website build"
+        keywords="7 day website launch, fast website build, Shopify expert UK, Squarespace designer UK, custom website sprint, moxie themes"
+        ogType="product"
+        structuredData={[serviceStructuredData]}
       />
 
       <section className="bg-purple text-white py-24 px-6 border-b-8 border-yellow overflow-hidden">

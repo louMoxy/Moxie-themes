@@ -22,9 +22,9 @@ export default function Services() {
     <Layout>
       <SEO 
         title="Services – Get a Website That Actually Works"
-        description="SEO audits, fix packages, and website design/setup that actually perform. Get found, loved, and clicked."
+        description="SEO audits, fix packages, and even 7-day website builds for small businesses that need to be found, loved, and clicked."
         canonical="/services"
-        keywords="SEO audit, SEO fixes, website design, Shopify, Squarespace, custom builds, site speed, accessibility"
+        keywords="SEO audit, SEO fixes, website design, Shopify, Squarespace, custom builds, site speed, accessibility, 7 day website launch"
       />
 
       <section className="bg-purple text-white py-24 px-6 border-b-8 border-yellow">

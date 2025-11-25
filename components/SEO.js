@@ -13,7 +13,8 @@ export default function SEO({
   publishedTime,
   modifiedTime,
   section,
-  tags
+  tags,
+  structuredData
 }) {
   const siteName = 'Moxie Themes';
   const siteUrl = 'https://moxiethemes.com';
@@ -112,6 +113,13 @@ export default function SEO({
           })
         }}
       />
+      {structuredData && (Array.isArray(structuredData) ? structuredData : [structuredData]).map((data, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
     </Head>
   );
 }
