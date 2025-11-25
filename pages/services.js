@@ -29,13 +29,23 @@ export default function Services() {
 
       <section className="bg-purple text-white py-24 px-6 border-b-8 border-yellow">
         <div className="max-w-6xl mx-auto">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl space-y-8">
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight drop-shadow text-white">
               Services – Get a Website That Actually Works
             </h1>
             <p className="text-xl font-body text-off-white/95 mb-10">
               Because pretty sites are nice, but profitable ones are better. I help small businesses build, fix, and optimise their websites so they can actually be found, loved, and clicked on.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <CTAButton href="/contact">Talk to me</CTAButton>
+              <CTAButton
+                href="/services/website"
+                variant="secondary"
+                className="border-4 border-white text-white hover:bg-white/10"
+              >
+                Explore the 7-Day Website Launch
+              </CTAButton>
+            </div>
           </div>
         </div>
       </section>
@@ -120,6 +130,14 @@ export default function Services() {
             </div>
             <p className="font-body text-charcoal/90 mb-6">Shopify, Squarespace, or fully custom builds — all with brains behind the beauty.</p>
             <p className="font-body text-charcoal/90 mb-6">Whether you’re starting from scratch or your old site’s feeling dated, I’ll design and build something that feels like you — fast, functional, and easy to manage.</p>
+            <div className="bg-purple/5 border border-purple/20 rounded-2xl p-5 mb-6">
+              <p className="font-body text-charcoal/90">
+                Need it yesterday? Check out the <Link href="/services/website" className="text-purple font-semibold underline">
+                  7-Day Website Launch
+                </Link>{' '}
+                for a sprint-style build that still gets all the strategy, SEO, and integrations.
+              </p>
+            </div>
 
             {/* Platform Accordions */}
             <div className="space-y-4 mb-6">

@@ -57,3 +57,23 @@
     opacity: 1;
   }
 }
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 24s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 12s;
+  }
+}
+
