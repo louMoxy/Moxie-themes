@@ -283,7 +283,7 @@ export default function WebsiteService() {
                 <Sparkles className="w-4 h-4" />
                 7-Day Website Launch
               </p>
-              <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight ">
+              <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight text-white">
                 A beautiful, high-converting, SEO-friendly website{' '}
                 <span className="text-yellow drop-shadow">in one week.</span>
               </h1>
@@ -524,12 +524,15 @@ export default function WebsiteService() {
             className="grid lg:grid-cols-2 gap-8"
           >
             <div className="bg-white border-4 border-teal/40 rounded-3xl p-8 shadow-lg space-y-4">
-              <p className="text-sm uppercase tracking-[0.2em] text-teal font-heading">
+              <p className="text-sm uppercase tracking-[0.2em] text-purple font-heading">
                 Pricing
               </p>
               <h2 className="text-3xl font-heading font-bold text-charcoal">
-                From £600–£1,500
+                From £400–£1,200
               </h2>
+              <p className="text-sm text-charcoal/80 block mb-4 small">
+                Payment plans available
+              </p>
               <p className="font-body text-charcoal/80">
                 Final pricing depends on platform, features, and page count. Every build
                 includes design, development, SEO, integrations, launch support, and

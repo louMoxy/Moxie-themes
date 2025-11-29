@@ -19,6 +19,7 @@ export default function Header() {
       ]
     },
     { href: '/blog', label: 'Blog' },
+    { href: '/portfolio', label: 'Portfolio' },
     { href: '/templates/y2k-theme', label: 'Templates' },
     { href: '/contact', label: 'Lets chat', isButton: true }
   ];
