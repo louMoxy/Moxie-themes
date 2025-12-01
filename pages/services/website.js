@@ -691,7 +691,7 @@ export default function WebsiteService() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <CTAButton
-                href="contact"
+                href="/contact"
                 variant="secondary"
                 className="border-4 border-white text-white hover:bg-white/10"
               >
